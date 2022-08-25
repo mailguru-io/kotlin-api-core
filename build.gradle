@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.5.31'
     id 'java-library'
     id 'maven-publish'
+    id 'signing'
 }
 
 group = 'io.mailguru'
@@ -64,6 +65,10 @@ publishing {
     repositories {
         mavenLocal()
     }
+}
+
+signing {
+    sign publishing.publications.mavenJava
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
