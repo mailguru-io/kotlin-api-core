@@ -3,7 +3,7 @@
  */
 package mailguru.api.core
 
-import org.mailguru.api.core.Library
+import io.mailguru.api.core.Library
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
