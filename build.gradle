@@ -1,6 +1,7 @@
 buildscript {
     ext {
         dokkaVersion = '1.7.10'
+        kotlinVersion = '1.7.10'
     }
     repositories {
         mavenCentral()
@@ -13,7 +14,7 @@ buildscript {
 plugins {
     id 'java-library'
     id 'org.jetbrains.dokka' version "$dokkaVersion"
-    id 'org.jetbrains.kotlin.jvm' version '1.5.31'
+    id 'org.jetbrains.kotlin.jvm' version "$kotlinVersion"
 }
 
 group = 'io.mailguru'
