@@ -1,4 +1,7 @@
 buildscript {
+    ext {
+        dokkaVersion = '1.7.10'
+    }
     repositories {
         mavenCentral()
     }
@@ -9,7 +12,7 @@ buildscript {
 
 plugins {
     id 'java-library'
-    id 'org.jetbrains.dokka' version '1.7.10'
+    id 'org.jetbrains.dokka' version "$dokkaVersion"
     id 'org.jetbrains.kotlin.jvm' version '1.5.31'
 }
 
@@ -21,7 +24,7 @@ apply plugin: 'com.vanniktech.maven.publish'
 
 dependencies {
 
-    dokkaHtmlPlugin 'org.jetbrains.dokka:kotlin-as-java-plugin:1.7.10'
+    dokkaHtmlPlugin "org.jetbrains.dokka:kotlin-as-java-plugin:$dokkaVersion"
 
     implementation platform('org.jetbrains.kotlin:kotlin-bom')
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
