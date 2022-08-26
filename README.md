@@ -23,6 +23,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![License: GPL v3][license-shield]][license-url]
+[![Javadoc][javadoc-shield]][javadoc-url]
 
 
 
@@ -37,7 +38,7 @@
 <h3 align="center">kotlin-api-core</h3>
 
   <p align="center">
-    Kotlin model library for usage when consuming our APIs. 
+    Kotlin model library for usage with various mailguru.io APIs. 
     <!-- br />
     <a href="https://github.com/mlgr-io/kotlin-api-core"><strong>Explore the docs »</strong></a //-->
     <br />
@@ -122,6 +123,8 @@ Project Link: [https://github.com/mlgr-io/kotlin-api-core](https://github.com/ml
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[javadoc-url]: https://javadoc.io/doc/io.mailguru/api-core
+[javadoc-shield]: https://javadoc.io/badge2/io.mailguru/api-core/javadoc.svg?style=for-the-badge&color=yellow
 [contributors-shield]: https://img.shields.io/github/contributors/mlgr-io/kotlin-api-core.svg?style=for-the-badge
 [contributors-url]: https://github.com/mlgr-io/kotlin-api-core/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/mlgr-io/kotlin-api-core.svg?style=for-the-badge
