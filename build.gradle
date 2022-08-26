@@ -1,28 +1,37 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.vanniktech:gradle-maven-publish-plugin:0.21.0'
+    }
+}
+
 plugins {
+    id 'java-library'
     id 'org.jetbrains.dokka' version '1.7.10'
     id 'org.jetbrains.kotlin.jvm' version '1.5.31'
-    id 'java-library'
-    id 'maven-publish'
-    id 'signing'
 }
 
 group = 'io.mailguru'
-version = '0.1.0'
+archivesBaseName = "mailguru-api-core"
+version = '0.2.0-SNAPSHOT'
 
-repositories {
-    mavenCentral()
-}
+apply plugin: 'com.vanniktech.maven.publish'
 
 dependencies {
 
-    dokkaHtmlPlugin('org.jetbrains.dokka:kotlin-as-java-plugin:1.7.10')
+    dokkaHtmlPlugin 'org.jetbrains.dokka:kotlin-as-java-plugin:1.7.10'
 
     implementation platform('org.jetbrains.kotlin:kotlin-bom')
-
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+}
+
+repositories {
+    mavenCentral()
 }
 
 java {
@@ -30,45 +39,43 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
+mavenPublishing {
+    publishToMavenCentral("S01")
+    signAllPublications()
 
-            pom {
-                name = 'api-core'
-                description = 'Kotlin model library for usage with consumption of various APIs by mailguru.io.'
-                url = 'https://github.com/mlgr-io/kotlin-api-core'
-                licenses {
-                    license {
-                        name = 'GNU General Public License, Version 3'
-                        url = 'https://www.gnu.org/licenses/gpl-3.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        name = 'Sascha Weyers'
-                        email = 'sw@mailguru.io'
-                        organization = 'mailguru UG (haftungsbeschränkt)'
-                        organizationUrl = 'https://mailguru.io'
-                    }
-                }
-                scm {
-                    connection = 'scm:git:git://github.com/mlgr-io/kotlin-api-core.git'
-                    developerConnection = 'scm:git:ssh://github.com:mlgr-io/kotlin-api-core.git'
-                    url = 'https://github.com/mlgr-io/kotlin-api-core/tree/master'
-                }
+    pom {
+        name = 'api-core'
+        description = 'Kotlin model library for usage with various mailguru.io APIs.'
+        url = 'https://github.com/mlgr-io/kotlin-api-core'
+        licenses {
+            license {
+                name = 'GNU General Public License, Version 3'
+                url = 'https://www.gnu.org/licenses/gpl-3.0.txt'
             }
-
+        }
+        developers {
+            developer {
+                name = 'Sascha Weyers'
+                email = 'sw@mailguru.io'
+                organization = 'mailguru UG (haftungsbeschränkt)'
+                organizationUrl = 'https://mailguru.io'
+            }
+        }
+        scm {
+            connection = 'scm:git:git://github.com/mlgr-io/kotlin-api-core.git'
+            developerConnection = 'scm:git:ssh://github.com:mlgr-io/kotlin-api-core.git'
+            url = 'https://github.com/mlgr-io/kotlin-api-core/tree/master'
         }
     }
-    repositories {
-        mavenLocal()
-    }
-}
+    // from components.java
 
-signing {
-    sign publishing.publications.mavenJava
+    repositories {
+        maven {
+            def releasesRepoUrl = layout.buildDirectory.dir('repos/releases')
+            def snapshotsRepoUrl = layout.buildDirectory.dir('repos/snapshots')
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
