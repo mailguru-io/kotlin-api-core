@@ -1,5 +1,6 @@
 package io.mailguru.api.core.model
 
+import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.json.JsonMapper
 import com.fasterxml.jackson.module.kotlin.kotlinModule
 import org.junit.jupiter.api.assertThrows
@@ -8,9 +9,28 @@ import kotlin.test.assertEquals
 
 class ApiErrorSourceTest {
 
-    private val objectMapper: JsonMapper = JsonMapper.builder()
+    private val mapperNullIncluded: JsonMapper = JsonMapper.builder()
         .addModule(kotlinModule())
         .build()
+
+    private val mapperNullExcluded: JsonMapper = JsonMapper.builder()
+        .addModule(kotlinModule())
+        .serializationInclusion(JsonInclude.Include.NON_NULL)
+        .build()
+
+    @Test
+    fun `no parameter, no propertyPath`() {
+        ApiErrorSource().let { sut ->
+            assertEquals(
+                """{"parameter":null,"pointer":null}""",
+                mapperNullIncluded.writeValueAsString(sut)
+            )
+            assertEquals(
+                """{}""",
+                mapperNullExcluded.writeValueAsString(sut)
+            )
+        }
+    }
 
     @Test
     fun `no parameter, empty string in propertyPath`() {
@@ -23,22 +43,30 @@ class ApiErrorSourceTest {
 
     @Test
     fun `no parameter, non-empty string in pointer NOT starting with slash`() {
-        assertEquals(
-            """{"parameter":null,"pointer":"/someProperty"}""",
-            objectMapper.writeValueAsString(
-                ApiErrorSource(propertyPath = "someProperty")
+        ApiErrorSource(propertyPath = "someProperty").let { sut ->
+            assertEquals(
+                """{"parameter":null,"pointer":"/someProperty"}""",
+                mapperNullIncluded.writeValueAsString(sut)
             )
-        )
+            assertEquals(
+                """{"pointer":"/someProperty"}""",
+                mapperNullExcluded.writeValueAsString(sut)
+            )
+        }
     }
 
     @Test
     fun `no parameter, non-empty string in pointer starting with slash`() {
-        assertEquals(
-            """{"parameter":null,"pointer":"/someProperty"}""",
-            objectMapper.writeValueAsString(
-                ApiErrorSource(propertyPath = "/someProperty")
+        ApiErrorSource(propertyPath = "/someProperty").let { sut ->
+            assertEquals(
+                """{"parameter":null,"pointer":"/someProperty"}""",
+                mapperNullIncluded.writeValueAsString(sut)
             )
-        )
+            assertEquals(
+                """{"pointer":"/someProperty"}""",
+                mapperNullExcluded.writeValueAsString(sut)
+            )
+        }
     }
 
     @Test
@@ -52,11 +80,29 @@ class ApiErrorSourceTest {
 
     @Test
     fun `non-empty string in parameter, no propertyPath`() {
-        assertEquals(
-            """{"parameter":"a random string with blanks","pointer":null}""",
-            objectMapper.writeValueAsString(
-                ApiErrorSource(parameter = "a random string with blanks")
+        ApiErrorSource(parameter = "a random string with blanks").let { sut ->
+            assertEquals(
+                """{"parameter":"a random string with blanks","pointer":null}""",
+                mapperNullIncluded.writeValueAsString(sut)
             )
-        )
+            assertEquals(
+                """{"parameter":"a random string with blanks"}""",
+                mapperNullExcluded.writeValueAsString(sut)
+            )
+        }
+    }
+
+    @Test
+    fun `non-empty string in parameter, non-empty string in propertyPath`() {
+        ApiErrorSource(parameter = "foo", propertyPath = "bar").let { sut ->
+            assertEquals(
+                """{"parameter":"foo","pointer":"/bar"}""",
+                mapperNullIncluded.writeValueAsString(sut)
+            )
+            assertEquals(
+                """{"parameter":"foo","pointer":"/bar"}""",
+                mapperNullExcluded.writeValueAsString(sut)
+            )
+        }
     }
 }
