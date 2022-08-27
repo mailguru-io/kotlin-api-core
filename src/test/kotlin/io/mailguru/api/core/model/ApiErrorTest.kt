@@ -7,7 +7,7 @@ import io.mailguru.api.core.exception.SourceException
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ApiErrorTest {
+internal class ApiErrorTest {
 
     private val mapperNullIncluded: JsonMapper = JsonMapper.builder()
         .addModule(kotlinModule())

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.module.kotlin.kotlinModule
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ApiErrorResponseTest {
+internal class ApiErrorResponseTest {
 
     private val mapperNullIncluded: JsonMapper = JsonMapper.builder()
         .addModule(kotlinModule())

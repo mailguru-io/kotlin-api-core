@@ -7,7 +7,7 @@ import org.junit.jupiter.api.assertThrows
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ApiErrorSourceTest {
+internal class ApiErrorSourceTest {
 
     private val mapperNullIncluded: JsonMapper = JsonMapper.builder()
         .addModule(kotlinModule())
