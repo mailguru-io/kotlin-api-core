@@ -38,7 +38,7 @@ class ApiErrorSourceTest {
             ApiErrorSource(propertyPath = "")
         }
 
-        assertEquals("The constructor arg `propertyPath` must not be blank.", thrown.message);
+        assertEquals("The constructor arg `propertyPath` must not be blank.", thrown.message)
     }
 
     @Test
@@ -75,7 +75,7 @@ class ApiErrorSourceTest {
             ApiErrorSource(parameter = "")
         }
 
-        assertEquals("The constructor arg `parameter` must not be blank.", thrown.message);
+        assertEquals("The constructor arg `parameter` must not be blank.", thrown.message)
     }
 
     @Test
