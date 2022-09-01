@@ -23,6 +23,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![License: GPL v3][license-shield]][license-url]
+[![Javadoc][javadoc-shield]][javadoc-url]
 
 
 
@@ -37,7 +38,7 @@
 <h3 align="center">kotlin-api-core</h3>
 
   <p align="center">
-    Kotlin model library for usage when consuming our APIs. 
+    Kotlin model library for usage with various mailguru.io APIs. 
     <!-- br />
     <a href="https://github.com/mlgr-io/kotlin-api-core"><strong>Explore the docs »</strong></a //-->
     <br />
@@ -57,6 +58,13 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -69,7 +77,65 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Description coming soon.
+Kotlin model library for usage with various mailguru.io APIs.
+
+The error and exception model classes are object representations of
+[JSON:API Error objects](https://jsonapi.org/format/#error-objects) (though the mapping itself happens at higher level
+libraries).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+Since this is a low-level mode library that is used within our [API client library](https://github.com/mlgr-io), there
+isn't much to see here. We don't provide explicit usage documentation for this library; but you may look into the
+[Javadoc](https://javadoc.io/doc/io.mailguru/api-core) in case you are wondering.
+
+### Prerequisites
+
+We choose to support the lowest actively supported Java version at the time of writing, that is, Java 11 (this may be
+subject to change in future major releases). There are no additional dependencies other than Kotlin and some plugins
+for publishing and documentation (Dokka).
+
+### Installation
+
+There are several ways to install this library:
+
+1. Apache Maven
+   ```
+   <dependency>
+     <groupId>io.mailguru</groupId>
+     <artifactId>api-core</artifactId>
+     <version>0.1.0</version>
+   </dependency>
+   ```
+2. Gradle Groovy DSL
+   ```
+   implementation 'io.mailguru:api-core:0.1.0'
+   ```
+3. Gradle Kotlin DSL
+   ```
+   implementation("io.mailguru:api-core:0.1.0")
+   ```
+4. Or you may clone the latest `develop` branch of this repository and publish it to your local maven repository: 
+   ```sh
+   git clone https://github.com/mlgr-io/kotlin-api-core.git
+   cd kotlin-api-core
+   ./gradlew publishToMavenLocal
+   ```
+   Then, in your target project, import the local lib by one of the methods above. Please make sure that the `version`
+   you import matches the value given in your local
+   [build.gradle](https://github.com/mlgr-io/kotlin-api-core/blob/develop/build.gradle) and you local maven repository:
+   ```sh
+   repositories {
+	 mavenLocal()
+	 // ...
+   }
+   ```
+ 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -122,6 +188,8 @@ Project Link: [https://github.com/mlgr-io/kotlin-api-core](https://github.com/ml
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[javadoc-url]: https://javadoc.io/doc/io.mailguru/api-core
+[javadoc-shield]: https://javadoc.io/badge2/io.mailguru/api-core/javadoc.svg?style=for-the-badge&color=yellow
 [contributors-shield]: https://img.shields.io/github/contributors/mlgr-io/kotlin-api-core.svg?style=for-the-badge
 [contributors-url]: https://github.com/mlgr-io/kotlin-api-core/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/mlgr-io/kotlin-api-core.svg?style=for-the-badge
