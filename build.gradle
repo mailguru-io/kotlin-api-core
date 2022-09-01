@@ -1,5 +1,6 @@
 buildscript {
     ext {
+        detektVersion = '1.21.0'
         dokkaVersion = '1.7.10'
         kotlinVersion = '1.7.10'
     }
@@ -12,6 +13,7 @@ buildscript {
 }
 
 plugins {
+    id "io.gitlab.arturbosch.detekt" version "$detektVersion"
     id 'java-library'
     id 'org.jetbrains.dokka' version "$dokkaVersion"
     id 'org.jetbrains.kotlin.jvm' version "$kotlinVersion"
