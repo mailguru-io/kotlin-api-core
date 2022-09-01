@@ -24,6 +24,7 @@
 [![Issues][issues-shield]][issues-url]
 [![License: GPL v3][license-shield]][license-url]
 [![Javadoc][javadoc-shield]][javadoc-url]
+[![MavenCentral][maven-shield]][maven-url]
 
 
 
@@ -190,6 +191,8 @@ Project Link: [https://github.com/mlgr-io/kotlin-api-core](https://github.com/ml
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [javadoc-url]: https://javadoc.io/doc/io.mailguru/api-core
 [javadoc-shield]: https://javadoc.io/badge2/io.mailguru/api-core/javadoc.svg?style=for-the-badge&color=yellow
+[maven-url]: https://search.maven.org/artifact/io.mailguru/api-core
+[maven-shield]: https://img.shields.io/maven-central/v/io.mailguru/api-core?style=for-the-badge
 [contributors-shield]: https://img.shields.io/github/contributors/mlgr-io/kotlin-api-core.svg?style=for-the-badge
 [contributors-url]: https://github.com/mlgr-io/kotlin-api-core/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/mlgr-io/kotlin-api-core.svg?style=for-the-badge
