@@ -27,7 +27,7 @@ class ApiError(
     val code: String? = null,
     val title: String? = null,
     val detail: String? = null,
-    val source: ApiErrorSource? = null,
+    val source: ApiErrorSource = ApiErrorSource(),
     val meta: Any? = null,
 ) {
 

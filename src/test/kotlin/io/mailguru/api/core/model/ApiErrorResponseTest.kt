@@ -83,14 +83,14 @@ internal class ApiErrorResponseTest {
                 "code":null,
                 "title":null,
                 "detail":null,
-                "source":null,
+                "source":{"parameter":null,"pointer":null},
                 "meta":null
                 }]}
                 """.trimIndent().replace("\n", ""),
                 mapperNullIncluded.writeValueAsString(sut)
             )
             assertEquals(
-                """{"errors":[{}]}""",
+                """{"errors":[{"source":{}}]}""",
                 mapperNullExcluded.writeValueAsString(sut)
             )
 

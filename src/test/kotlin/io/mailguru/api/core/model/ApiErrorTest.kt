@@ -75,14 +75,14 @@ internal class ApiErrorTest {
                 "code":null,
                 "title":null,
                 "detail":null,
-                "source":null,
+                "source":{"parameter":null,"pointer":null},
                 "meta":null
                 }
                 """.trimIndent().replace("\n", ""),
                 mapperNullIncluded.writeValueAsString(sut)
             )
             assertEquals(
-                """{}""",
+                """{"source":{}}""",
                 mapperNullExcluded.writeValueAsString(sut)
             )
         }
@@ -183,7 +183,7 @@ internal class ApiErrorTest {
                 "code":"123",
                 "title":"title1",
                 "detail":"detail1",
-                "source":null,
+                "source":{"parameter":null,"pointer":null},
                 "meta":null
                 }
                 """.trimIndent().replace("\n", ""),
@@ -194,7 +194,8 @@ internal class ApiErrorTest {
                 {
                 "code":"123",
                 "title":"title1",
-                "detail":"detail1"
+                "detail":"detail1",
+                "source":{}
                 }
                 """.trimIndent().replace("\n", ""),
                 mapperNullExcluded.writeValueAsString(sut)
