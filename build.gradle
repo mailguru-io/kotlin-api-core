@@ -20,7 +20,7 @@ plugins {
 
 group = 'io.mailguru'
 archivesBaseName = "mailguru-api-core"
-version = '0.2.0-SNAPSHOT'
+version = '0.2.0'
 
 apply plugin: 'com.vanniktech.maven.publish'
 
