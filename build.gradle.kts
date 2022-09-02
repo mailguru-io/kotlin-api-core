@@ -1,23 +1,30 @@
 import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import com.vanniktech.maven.publish.SonatypeHost
+import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-    }
+
+    // use this map to add or override versions
+    extra["versions"] = mapOf(
+        "example-lib" to "1.2.3",
+    )
+
+    apply(from = "01-versions.gradle.kts")
+    val plugins: List<String> = extra["plugins"] as List<String>
+
     dependencies {
-        classpath("com.vanniktech:gradle-maven-publish-plugin:0.21.0")
+        plugins.forEach { classpath(it) }
+        // add additional buildscript plugins here
     }
 }
 
+extra["kotlinVersion"] = plugins.getPlugin(KotlinPluginWrapper::class.java).pluginVersion
+apply(from = "02-configuration.gradle.kts")
+
 plugins {
-    id("io.gitlab.arturbosch.detekt") version "1.21.0"
-    id("java-library")
-    id("org.jetbrains.dokka") version "1.7.10"
-    id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.7.10" // this should be the only place where the kotlin version is hard-coded
+    // add additional plugins here
 }
 
 base {
@@ -26,29 +33,15 @@ base {
     archivesName.set("mailguru-api-core")
 }
 
-apply {
-    plugin("com.vanniktech.maven.publish")
-}
-
 dependencies {
-
-    dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:1.7.10")
-
-    api(platform("org.jetbrains.kotlin:kotlin-bom:1.7.10"))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-
-    testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.3")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.9.0")
+    // add additional dependencies here
 }
 
-repositories {
-    mavenCentral()
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+tasks.withType<KotlinCompile>().configureEach {
+    kotlinOptions {
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+        jvmTarget = "11"
+    }
 }
 
 plugins.withId("com.vanniktech.maven.publish.base") {
@@ -89,14 +82,4 @@ plugins.withId("com.vanniktech.maven.publish.base") {
             }
         }
     }
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
 }
