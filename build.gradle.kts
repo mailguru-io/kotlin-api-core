@@ -38,8 +38,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.3")
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.0")
 }
 
@@ -96,4 +95,8 @@ tasks.withType<KotlinCompile> {
     kotlinOptions {
         jvmTarget = "11"
     }
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
