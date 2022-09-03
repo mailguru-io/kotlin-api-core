@@ -7,10 +7,10 @@ buildscript {
 
     // use this map to add or override versions
     extra["versions"] = mapOf(
-        "example-lib" to "1.2.3",
+        "jackson" to "2.13.3",
     )
 
-    apply(from = "01-versions.gradle.kts")
+    apply(from = "https://raw.githubusercontent.com/mlgr-io/kotlin-skeleton/0.1/01-versions.gradle.kts")
     val plugins: List<String> = extra["plugins"] as List<String>
 
     dependencies {
@@ -20,7 +20,7 @@ buildscript {
 }
 
 extra["kotlinVersion"] = plugins.getPlugin(KotlinPluginWrapper::class.java).pluginVersion
-apply(from = "02-configuration.gradle.kts")
+apply(from = "https://raw.githubusercontent.com/mlgr-io/kotlin-skeleton/0.1/02-configuration.gradle.kts")
 
 plugins {
     kotlin("jvm") version "1.7.10" // this should be the only place where the kotlin version is hard-coded
@@ -33,8 +33,10 @@ base {
     archivesName.set("mailguru-api-core")
 }
 
+val versions: Map<String, String> = (extra["versions"] as Map<String, String>)
 dependencies {
     // add additional dependencies here
+    testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin:" + versions["jackson"])
 }
 
 tasks.withType<KotlinCompile>().configureEach {
