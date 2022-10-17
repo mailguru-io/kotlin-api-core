@@ -32,7 +32,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <!-- a href="https://github.com/mlgr-io/kotlin-api-core">
+  <!-- a href="https://github.com/mailguru-io/kotlin-api-core">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a //-->
 
@@ -41,14 +41,14 @@
   <p align="center">
     Kotlin model library for usage with various mailguru.io APIs. 
     <!-- br />
-    <a href="https://github.com/mlgr-io/kotlin-api-core"><strong>Explore the docs »</strong></a //-->
+    <a href="https://github.com/mailguru-io/kotlin-api-core"><strong>Explore the docs »</strong></a //-->
     <br />
     <br />
-    <!-- a href="https://github.com/mlgr-io/kotlin-api-core">View Demo</a>
+    <!-- a href="https://github.com/mailguru-io/kotlin-api-core">View Demo</a>
     · //-->
-    <a href="https://github.com/mlgr-io/kotlin-api-core/issues">Report Bug</a>
+    <a href="https://github.com/mailguru-io/kotlin-api-core/issues">Report Bug</a>
     ·
-    <a href="https://github.com/mlgr-io/kotlin-api-core/issues">Request Feature</a>
+    <a href="https://github.com/mailguru-io/kotlin-api-core/issues">Request Feature</a>
   </p>
 </div>
 
@@ -91,7 +91,7 @@ libraries).
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Since this is a low-level mode library that is used within our [API client library](https://github.com/mlgr-io), there
+Since this is a low-level mode library that is used within our [API client library](https://github.com/mailguru-io), there
 isn't much to see here. We don't provide explicit usage documentation for this library; but you may look into the
 [Javadoc](https://javadoc.io/doc/io.mailguru/api-core) in case you are wondering.
 
@@ -123,13 +123,13 @@ There are several ways to install this library:
    ```
 4. Or you may clone the latest `develop` branch of this repository and publish it to your local maven repository: 
    ```sh
-   git clone https://github.com/mlgr-io/kotlin-api-core.git
+   git clone https://github.com/mailguru-io/kotlin-api-core.git
    cd kotlin-api-core
    ./gradlew publishToMavenLocal
    ```
    Then, in your target project, import the local lib by one of the methods above. Please make sure that the `version`
    you import matches the value given in your local
-   [build.gradle](https://github.com/mlgr-io/kotlin-api-core/blob/develop/build.gradle) and you local maven repository:
+   [build.gradle](https://github.com/mailguru-io/kotlin-api-core/blob/develop/build.gradle) and you local maven repository:
    ```sh
    repositories {
 	 mavenLocal()
@@ -172,7 +172,7 @@ Distributed under the **GNU General Public License v3.0**. See [LICENSE.md](LICE
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/mlgr-io/kotlin-api-core](https://github.com/mlgr-io/kotlin-api-core)
+Project Link: [https://github.com/mailguru-io/kotlin-api-core](https://github.com/mailguru-io/kotlin-api-core)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -193,16 +193,16 @@ Project Link: [https://github.com/mlgr-io/kotlin-api-core](https://github.com/ml
 [javadoc-shield]: https://javadoc.io/badge2/io.mailguru/api-core/javadoc.svg?style=for-the-badge&color=yellow
 [maven-url]: https://search.maven.org/artifact/io.mailguru/api-core
 [maven-shield]: https://img.shields.io/maven-central/v/io.mailguru/api-core?style=for-the-badge
-[contributors-shield]: https://img.shields.io/github/contributors/mlgr-io/kotlin-api-core.svg?style=for-the-badge
-[contributors-url]: https://github.com/mlgr-io/kotlin-api-core/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/mlgr-io/kotlin-api-core.svg?style=for-the-badge
-[forks-url]: https://github.com/mlgr-io/kotlin-api-core/network/members
-[stars-shield]: https://img.shields.io/github/stars/mlgr-io/kotlin-api-core.svg?style=for-the-badge
-[stars-url]: https://github.com/mlgr-io/kotlin-api-core/stargazers
-[issues-shield]: https://img.shields.io/github/issues/mlgr-io/kotlin-api-core.svg?style=for-the-badge
-[issues-url]: https://github.com/mlgr-io/kotlin-api-core/issues
-[license-shield]: https://img.shields.io/github/license/mlgr-io/kotlin-api-core.svg?style=for-the-badge
-[license-url]: https://github.com/mlgr-io/kotlin-api-core/blob/master/LICENSE.md
+[contributors-shield]: https://img.shields.io/github/contributors/mailguru-io/kotlin-api-core.svg?style=for-the-badge
+[contributors-url]: https://github.com/mailguru-io/kotlin-api-core/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/mailguru-io/kotlin-api-core.svg?style=for-the-badge
+[forks-url]: https://github.com/mailguru-io/kotlin-api-core/network/members
+[stars-shield]: https://img.shields.io/github/stars/mailguru-io/kotlin-api-core.svg?style=for-the-badge
+[stars-url]: https://github.com/mailguru-io/kotlin-api-core/stargazers
+[issues-shield]: https://img.shields.io/github/issues/mailguru-io/kotlin-api-core.svg?style=for-the-badge
+[issues-url]: https://github.com/mailguru-io/kotlin-api-core/issues
+[license-shield]: https://img.shields.io/github/license/mailguru-io/kotlin-api-core.svg?style=for-the-badge
+[license-url]: https://github.com/mailguru-io/kotlin-api-core/blob/master/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
