@@ -1,6 +1,7 @@
 package io.mailguru.api.core.exception
 
 class MalformedParameterException(
-    override val message: String = "Malformed input.",
-    override val parameter: String,
-) : SourceException(message, parameter = parameter)
+    message: String? = null,
+    cause: Throwable? = null,
+    parameter: String? = null,
+) : SourceException(message ?: "Malformed parameter.", cause, parameter, null)
