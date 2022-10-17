@@ -53,7 +53,7 @@ plugins.withId("com.vanniktech.maven.publish.base") {
         pom {
             name.set(project.name)
             description.set("Kotlin model library for usage with various mailguru.io APIs.")
-            url.set("https://github.com/mlgr-io/kotlin-api-core")
+            url.set("https://github.com/mailguru-io/kotlin-api-core")
             licenses {
                 license {
                     name.set("GNU General Public License, Version 3")
@@ -69,9 +69,9 @@ plugins.withId("com.vanniktech.maven.publish.base") {
                 }
             }
             scm {
-                connection.set("scm:git:git://github.com/mlgr-io/kotlin-api-core.git")
-                developerConnection.set("scm:git:ssh://github.com:mlgr-io/kotlin-api-core.git")
-                url.set("https://github.com/mlgr-io/kotlin-api-core")
+                connection.set("scm:git:git://github.com/mailguru-io/kotlin-api-core.git")
+                developerConnection.set("scm:git:ssh://github.com:mailguru-io/kotlin-api-core.git")
+                url.set("https://github.com/mailguru-io/kotlin-api-core")
             }
         }
         repositories {
