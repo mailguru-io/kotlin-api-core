@@ -29,7 +29,6 @@ plugins {
 
 base {
     group = "io.mailguru"
-    version = "0.3.0-SNAPSHOT"
     archivesName.set("mailguru-api-core")
 }
 
