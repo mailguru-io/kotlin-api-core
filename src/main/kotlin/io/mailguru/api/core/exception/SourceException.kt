@@ -1,7 +1,8 @@
 package io.mailguru.api.core.exception
 
 abstract class SourceException(
-    override val message: String,
+    message: String,
+    cause: Throwable? = null,
     open val parameter: String? = null,
     open val propertyPath: String? = null,
-) : RuntimeException(message)
+) : RuntimeException(message, cause)
