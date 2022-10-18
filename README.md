@@ -110,16 +110,16 @@ There are several ways to install this library:
    <dependency>
      <groupId>io.mailguru</groupId>
      <artifactId>api-core</artifactId>
-     <version>0.1.0</version>
+     <version>0.3.0</version>
    </dependency>
    ```
 2. Gradle Groovy DSL
    ```
-   implementation 'io.mailguru:api-core:0.1.0'
+   implementation 'io.mailguru:api-core:0.3.0'
    ```
 3. Gradle Kotlin DSL
    ```
-   implementation("io.mailguru:api-core:0.1.0")
+   implementation("io.mailguru:api-core:0.3.0")
    ```
 4. Or you may clone the latest `develop` branch of this repository and publish it to your local maven repository: 
    ```sh
