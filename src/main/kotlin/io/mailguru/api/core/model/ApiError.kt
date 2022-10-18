@@ -20,6 +20,7 @@ import io.mailguru.api.core.exception.SourceException
  * @param source An object containing references to the source of the error, see [ApiErrorSource].
  * @param meta A meta object containing non-standard meta-information about the error.
  */
+@Suppress("LongParameterList")
 class ApiError(
     val id: String? = null,
     val about: String? = null,

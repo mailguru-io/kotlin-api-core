@@ -32,6 +32,6 @@ data class ApiErrorSource @Throws(IllegalArgumentException::class) constructor(
      * object, or "/data/attributes/title" for a specific attribute. Will be generated from the propertyPath param
      */
     val pointer: String? by lazy {
-        propertyPath?.let { String.format("/%s", it.trimStart('/')) }
+        propertyPath?.let { "/" + it.trimStart('/') }
     }
 }
